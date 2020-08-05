@@ -1,6 +1,26 @@
 ﻿$(document).ready(function () {
     let url = $(location).attr('href');
 
+    // kosár ürítés
+    $(document).on('click', '.kosar-urites', function () {
+        $.get('php/kosar_urites.php', function () {
+            //$('#kosar-tabla').fadeOut();
+            location.reload();
+        });
+    });
+
+    //tétel törlés kosárból
+    $(document).on('click', '.kaja-torles', function () {
+        let torlendoKajaId = $(this).data('torlendo');
+
+        $.post('php/tetel_torles.php', {id: torlendoKajaId}, function () {
+            //location.reload();
+        });
+
+    });
+
+
+
     // kosárba hozzáadás
     $(document).on('click', '.hozzaad', function () {
         let kajaId = $(this).data('kajaid');

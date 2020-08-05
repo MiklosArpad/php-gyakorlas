@@ -3,18 +3,19 @@ session_start();
 require_once '../config/connect.php';
 
 if (!isset($_SESSION['kosar'])){
-    echo "Üres a kosár!";
+    echo "<h1 class='text-center'>Üres a kosár!</h1>";
 } else {
     $kosar = $_SESSION['kosar'];
     
     $sql = "SELECT * FROM termekek WHERE id = ?";
     $stmt = $conn -> prepare($sql);
     
-    $html = "<table>"
+    $html = "<table id='kosar-tabla' class='text-center table table-striped'>"
             . "<tr>"
             . "<th>Név</th>"
             . "<th>Mennyiség</th>"
             . "<th>Ár</th>"
+            . "<th></th>"
             . "</tr>";
     while (current($kosar)){
         $key = key($kosar);
@@ -25,16 +26,18 @@ if (!isset($_SESSION['kosar'])){
         $stmt -> fetch();
         $html .="<tr>"
             . "<td>{$nev}</td>"
-            . "<td><input id='{$id}' type='number' min='0' max='40' value='{$kosar[$key]}'></td>"
+            . "<td><input class='form-control' id='{$id}' type='number' min='0' max='40' value='{$kosar[$key]}'></td>"
             . "<td>{$ar}</td>"
+            . "<td><button class='btn btn-danger kaja-torles' data-torlendo='{$id}'>&#128465</button></td>"
             . "</tr>";
         next($kosar);
             
     }
     $html .= "</table>";
     
-    $html .= "<button class='modosit btn btn-info'>Módosít</button>";
-    $html .= "<button class='rendel btn btn-success'>Rendelés</button>";
+    $html .= "<button class='modosit btn btn-info mt-3'>Módosít</button>";
+    $html .= "<button class='rendel btn btn-success mt-3'>Rendelés</button>";
+    $html .= "<button class='kosar-urites btn btn-danger mt-3'>Ürítés</button>";
     echo $html;
     $stmt -> close();
     $conn -> close();
