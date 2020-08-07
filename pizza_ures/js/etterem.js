@@ -14,12 +14,10 @@
         let torlendoKajaId = $(this).data('torlendo');
 
         $.post('php/tetel_torles.php', {id: torlendoKajaId}, function () {
-            //location.reload();
+            location.reload(); // REFAKTOR: adott oszlopot jQuery-vel eltüntetjük !!!
         });
 
     });
-
-
 
     // kosárba hozzáadás
     $(document).on('click', '.hozzaad', function () {
@@ -55,5 +53,3 @@
          */
     });
 }); //ready vége
-
-
