@@ -8,6 +8,16 @@
             location.reload();
         });
     });
+    
+    
+    // tétel módosítása
+    $(document).on('click', '.modosit', function (){
+        alert("BELEFUT");
+    });
+    
+    $(document).on('click', '.rendel', function (){
+        alert('A rendelés sikeresen megtörtént!');
+    });
 
     //tétel törlés kosárból
     $(document).on('click', '.kaja-torles', function () {
