@@ -11,9 +11,11 @@
 
     //tétel törlés kosárból
     $(document).on('click', '.kaja-torles', function () {
+        //let gomb = $(this);
         let torlendoKajaId = $(this).data('torlendo');
 
         $.post('php/tetel_torles.php', {id: torlendoKajaId}, function () {
+            //gomb.parent('td').parent('tr').fadeOut();
             location.reload(); // REFAKTOR: adott oszlopot jQuery-vel eltüntetjük !!!
         });
 
