@@ -27,7 +27,7 @@ if (!isset($_SESSION['kosar'])) {
         $stmt->fetch();
         $html .= "<tr>"
                 . "<td>{$nev}</td>"
-                . "<td><input class='form-control' id='{$id}' type='number' min='0' max='40' value='{$kosar[$key]}'></td>"
+                . "<td><input class='form-control tetel-darabszam' id='{$id}' type='number' min='0' max='40' value='{$kosar[$key]}'></td>"
                 . "<td>{$ar}</td>"
                 . "<td><button class='btn btn-success kaja-modositas' data-modositando='{$id}'>&#128190</button></td>"
                 . "<td><button class='btn btn-danger kaja-torles' data-torlendo='{$id}'>&#128465</button></td>"

@@ -8,14 +8,23 @@
             location.reload();
         });
     });
-    
-    
+
+
     // tétel módosítása
-    $(document).on('click', '.modosit', function (){
-        alert("BELEFUT");
+    $(document).on('click', '.kaja-modositas', function () {
+        let gomb = $(this);
+
+        let darabszam = gomb.parent('td') // szülő
+                .prev('td').prev('td') // két tesóval vissza
+                .children('input[type=number]').val(); // annak a gyerekének a value-ja
+
+        let modositandoKajaId = gomb.data('modositando');
+
+        $.post('php/tetel_modosit.php', {id: modositandoKajaId, darab: darabszam}, function () {
+        });
     });
-    
-    $(document).on('click', '.rendel', function (){
+
+    $(document).on('click', '.rendel', function () {
         alert('A rendelés sikeresen megtörtént!');
     });
 
