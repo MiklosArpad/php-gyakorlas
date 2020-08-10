@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: activeborder;
+    font-size: 1.2em;
+ }
+#tartalom {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 80vh;
+}
+header{
+    background-color: darkblue;
+    height: 2.5em;
+}
+header ul {
+    padding: 0.5em;
+}
+header li{
+    display: inline;
+    list-style-type: none;
+    padding: 0.5em;
+}
+header a, span{
+    color: azure;
+    text-decoration: none;
+    padding: 0.5em;
+}
+header a:hover, span:hover{
+    background-color: azure;
+    color: darkblue;
+    cursor: pointer;
+}
+
+footer{
+    text-align: center;
+}
+
+table {
+    margin-top: 1em;
+}
+
+table, td, th{
+    border: 1px solid darkblue;
+    border-collapse: collapse;
+    width: 60%;
+    margin: 0 auto;
+}

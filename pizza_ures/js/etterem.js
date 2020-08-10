@@ -18,6 +18,10 @@
                 .prev('td').prev('td') // két tesóval vissza
                 .children('input[type=number]').val(); // annak a gyerekének a value-ja
 
+        darabszam = darabszam * 1;
+        console.log(typeof darabszam);
+
+
         let modositandoKajaId = gomb.data('modositando');
 
         $.post('php/tetel_modosit.php', {id: modositandoKajaId, darab: darabszam}, function () {
