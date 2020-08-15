@@ -1,6 +1,6 @@
 $(document).ready(function(){
+    
     //Belépés
-        
     $(document).on("click","#belep",function(){
         var felhasznalo = $("#felhasznalo").val();
         var jelszo = $("#jelszo").val();
@@ -16,24 +16,32 @@ $(document).ready(function(){
             });
         }
     });
-    //Belépés
+    
     $(document).on("click","#munkaado-lista", function() {
-        
         $.ajax({
             url: 'php/munkaadok.php',
             method: 'get',
-            success: function (data, textStatus, jqXHR) {
-                
+            success: function (tablazat) {
+                $('#adatok').html(tablazat);
             },
-            error: function (jqXHR, textStatus, errorThrown) {
-                
+            error: function (xhr) {
+                alert(xhr.status);
             }
         });
-        
-        
-        
     });
     
+    $(document).on("click","#uj-munkaado", function (){
+        $.ajax({
+            url: 'html/urlap.html',
+            method: 'get',
+            success: function (urlap) {
+                $('#adatok').html(urlap);
+            },
+            error: function (xhr) {
+                alert(xhr.status);
+            }
+        });
+    });
     
     //Kilépés
     $(document).on("click","#kilep",function(){

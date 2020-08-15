@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: lightgreen;
+}
+#tartalom{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 500px;
+    background-color: antiquewhite;
+}
+.login-form{
+    width: 25%;
+    margin: 0 auto;
+}
+.kilep{
+    border: 1px solid black;
+    padding: 3px;
+    background-color: lightgray;
+}
+.kilep:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
