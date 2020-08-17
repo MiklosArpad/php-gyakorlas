@@ -63,7 +63,7 @@ $(document).ready(function () {
             url: 'php/logout.php',
             method: 'get',
             success: function () {
-                location.href = '../index.php';
+                location.href = 'index.php';
             },
             error: function (xhr) {
                 alert(xhr.status);
