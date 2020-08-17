@@ -11,9 +11,9 @@ if (!isset($_SESSION['nev'])) {
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <script src="../JS/jquery-3.3.1.min.js"></script>
-        <script src="../JS/js.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="JS/jquery-3.3.1.min.js"></script>
+        <script src="JS/js.js"></script>
 
     </head>
     <body>

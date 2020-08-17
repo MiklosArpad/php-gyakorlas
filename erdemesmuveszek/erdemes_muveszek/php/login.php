@@ -20,14 +20,10 @@ if (isset($_POST['felhasznalo'])) {
 
         $_SESSION['nev'] = $nev;
         $_SESSION['nevaz'] = $id;
-
-        $stmt->close();
-        $link->close();
-
-        header('Location: main.php');
     } else {
         $_SESSION['hiba'] = "Helytelen felhasználónév vagy jelszó!";
-        $stmt->close();
-        $link->close();
     }
+
+    $stmt->close();
+    $link->close();
 }
