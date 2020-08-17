@@ -7,7 +7,7 @@ if (isset($_POST['felhasznalo'])) {
     $felhasznalo = $_POST['felhasznalo'];
     $jelszo = $_POST['jelszo'];
 
-    $sql = "SELECT * FROM szemely WHERE nev = ? AND ev = ?";
+    $sql = "SELECT az, nev FROM szemely WHERE nev = ? AND ev = ?";
     $stmt = $link->prepare($sql);
     $stmt->bind_param('si', $felhasznalo, $jelszo);
     $stmt->execute();
@@ -15,7 +15,7 @@ if (isset($_POST['felhasznalo'])) {
 
     if ($stmt->num_rows == 1) {
         //sikeres bejelentkezés
-        $stmt->bind_result($id, $nev, $ev, $elozo);
+        $stmt->bind_result($id, $nev);
         $stmt->fetch();
 
         $_SESSION['nev'] = $nev;
