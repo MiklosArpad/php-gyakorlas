@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli('127.0.0.1:3306', 'root', '', 'etterem');
+$conn = new mysqli('10.0.14.100', 'user_esti', '', 'esti_etterem');
 
 if ($conn -> connect_errno){
     die($conn -> connect_error);
