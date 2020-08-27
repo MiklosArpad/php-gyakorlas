@@ -1,9 +1,11 @@
 <?php
 
-$conn = new mysqli('10.0.14.100', 'user_esti', '', 'esti_etterem');
+$conn = new mysqli('127.0.0.1', 'root', '', 'etterem');
 
-if ($conn -> connect_errno){
-    die($conn -> connect_error);
+if ($conn->connect_errno) {
+    die($conn->connect_error);
 }
 
-$conn ->set_charset('utf8');
+if (!$conn->set_charset('utf8')) {
+    die('Nem sikerült as karakterkódolást beállítani!');
+}
