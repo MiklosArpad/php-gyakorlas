@@ -7,12 +7,12 @@ $(document).ready(function () {
 
         // 1) kiszedni a változókba 
         // a DOM-fából miket kell majd az ajax kérésben elküldenem a szerverre
-
-        // name HTML attribútum szerinti target...
+        // perpill name HTML attribútum szerinti target...
         let nickname = $('[name=nickname]').val();
         let email = $('[name=e-mail-cim]').val();
         let jelszo = $('[name=pwd]').val();
-        //alert(jelszo);
+
+        // 3) AJAX kérés megfogalmazása
         $.ajax({
             method: 'post',
             url: 'php/reg.php',
@@ -29,6 +29,6 @@ $(document).ready(function () {
             }
         })
     });
-    
+
     // szerveroldali átirányítást nézzük meg !!!
 });
