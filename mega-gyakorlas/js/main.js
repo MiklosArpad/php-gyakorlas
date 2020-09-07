@@ -17,18 +17,17 @@ $(document).ready(function () {
             method: 'post',
             url: 'php/reg.php',
             data: {
-                nickame: nickname, // arpi, bence, stb...
+                nickname: nickname, // arpi, bence, stb...
                 email: email, // a@a, m@arpad.hu
                 jelszo: jelszo // 12345, password!123
             },
             success: function () {
-                location.href = 'index.php';
+                location.href = 'index.php'; // kliensoldali átirányítás ...
             },
             error: function (xhr) {
-                alert(xhr.status);
+                alert('Valami hiba történt, hibakód: ' + xhr.status);
+                // hiba esetén kiprinteljük a hibaüzenetet és a hibakódot
             }
         })
     });
-
-    // szerveroldali átirányítást nézzük meg !!!
 });
