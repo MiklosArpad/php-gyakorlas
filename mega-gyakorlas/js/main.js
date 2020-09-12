@@ -54,4 +54,17 @@ $(document).ready(function () {
             alert("Nickname 10 vagy annál kevesebb karakter lehet! Jelszó 8 vagy annál kevesebb karakter lehet!");
         }
     });
+
+    $.ajax({
+        method: 'get',
+        url: 'php/users.php',
+        success: function (response) {
+            $('.users').html(response);
+        },
+        error: function () {
+            $('.users')
+                    .html('<h1 class="text-center">Nem sikerült letölteni a táblázatot!</h1>')
+                    .css('color', 'red');
+        }
+    });
 });
