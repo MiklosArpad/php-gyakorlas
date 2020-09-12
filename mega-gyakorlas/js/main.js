@@ -12,22 +12,46 @@ $(document).ready(function () {
         let email = $('[name=e-mail-cim]').val();
         let jelszo = $('[name=pwd]').val();
 
-        // 3) AJAX kérés megfogalmazása
-        $.ajax({
-            method: 'post',
-            url: 'php/reg.php',
-            data: {
-                nickname: nickname, // arpi, bence, stb...
-                email: email, // a@a, m@arpad.hu
-                jelszo: jelszo // 12345, password!123
-            },
-            success: function () {
-                location.href = 'index.php'; // kliensoldali átirányítás ...
-            },
-            error: function (xhr) {
-                alert('Valami hiba történt, hibakód: ' + xhr.status);
-                // hiba esetén kiprinteljük a hibaüzenetet és a hibakódot
-            }
-        })
+        //console.log(nickname);
+        //console.log(email);
+        //console.log(jelszo);
+
+        // karakterek elejéről, végéről üres szóközök eltávolítása...
+        nickname = nickname.trim();
+        email = email.trim();
+        jelszo = jelszo.trim();
+
+        //console.log(nickname);
+        //console.log(email);
+        //console.log(jelszo);
+
+        let emailRegex = new RegExp(/^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i);
+        // let emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
+
+        // Kliensoldali validáció kezdete ...
+        if (nickname.length <= 10 && jelszo.length <= 8 && emailRegex.test(email)) {
+
+            // 3) AJAX kérés megfogalmazása
+            $.ajax({
+                method: 'post',
+                url: 'php/reg.php',
+                data: {
+                    nickname: nickname, // arpi, bence, stb...
+                    email: email, // a@a, m@arpad.hu
+                    jelszo: jelszo // 12345, password!123
+                },
+                success: function () {
+                    alert('Sikeres regisztráció!'); // üzenet ...
+                    location.href = 'index.php'; // kliensoldali átirányítás ...
+                },
+                error: function (xhr) {
+                    alert('Valami hiba történt, hibakód: ' + xhr.status);
+                    // hiba esetén kiprinteljük a hibaüzenetet és a hibakódot
+                }
+            });
+        } else {
+            // TODO: HTML hibaüzenetek készítése + email hibaüzi ...
+            alert("Nickname 10 vagy annál kevesebb karakter lehet! Jelszó 8 vagy annál kevesebb karakter lehet!");
+        }
     });
 });
