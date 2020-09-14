@@ -21,8 +21,8 @@ while ($row = $res->fetch_row()) {
     $html .= "<tr data-userid='{$row[0]}'>"
             . "<td>{$row[1]}</td>"
             . "<td>{$row[2]}</td>"
-            . "<td><button class='btn btn-info'>Módosítás</button>"
-            . "<button class='btn btn-danger'>Törlés</button></td>"
+            . "<td><button class='js-modositas btn btn-info'>Módosítás</button>"
+            . "<button class='js-torles btn btn-danger'>Törlés</button></td>"
             . '</tr>';
 }
 

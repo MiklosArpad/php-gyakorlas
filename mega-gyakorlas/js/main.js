@@ -67,4 +67,31 @@ $(document).ready(function () {
                     .css('color', 'red');
         }
     });
+
+    $(document).on('click', '.js-torles', function () {
+        // így már nem az aktuális gombot szedi ki, hanem a legeslegelsőt (oka: több gombnak van js-torles class-a)
+        //let id = $('.js-torles').parent().parent().data('userid');
+
+        // megoldás: $(this) -> ez a this mutat az eseményfigyelőben meghatározott gombra,
+        // akin lefut az esemény
+        let torlendoUserId = $(this).parent().parent().data('userid');
+        //console.log(id); TESZTELNI KELL TÉNYLEG KISZEDTE-E A JÓ ID-T...
+
+        $.ajax({
+            url: 'php/usertorles.php',
+            method: 'post',
+            data: {
+                id: torlendoUserId
+                        // ha az egyes törlés gombra kattintottam, akkor ez ilyen -> id : 1
+                        // egyébként -> id : 2
+            },
+            success: function () {
+                location.reload();
+            },
+            error: function () {
+
+            }
+        });
+
+    });
 });
