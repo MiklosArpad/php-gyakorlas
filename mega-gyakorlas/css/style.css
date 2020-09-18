@@ -1,4 +1,13 @@
 #reg-form {
     margin-left: 20%;
     margin-right: 20%;
+    margin-top: 20%;
+}
+
+legend {
+    font-variant: small-caps;
+}
+
+.table-striped {
+    margin-top: 5%;
 }

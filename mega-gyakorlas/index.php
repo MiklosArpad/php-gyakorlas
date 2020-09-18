@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="hu">
     <head>
-        <meta charset="UTF-8">
-        <title>Regisztráció</title>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <?php require_once 'html/head.html'; ?>
     </head>
     <body>
-        <a href="regisztracio.php">Regisztráció</a>
+        <?php require_once 'html/navbar.html'; ?>
     </body>
 </html>
