@@ -94,8 +94,8 @@ $(document).ready(function () {
                 //location.reload();
                 tr.fadeOut();
             },
-            error: function () {
-
+            error: function (xhr) {
+                alert('Valami hiba történt, hibakód: ' + xhr.status);
             }
         });
 
@@ -126,8 +126,8 @@ $(document).ready(function () {
             success: function () {
                 alert("Sikeres módosult!");
             },
-            error: function () {
-
+            error: function (xhr) {
+                alert('Valami hiba történt, hibakód: ' + xhr.status);
             }
         });
     });
