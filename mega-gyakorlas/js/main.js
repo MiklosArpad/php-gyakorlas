@@ -74,7 +74,12 @@ $(document).ready(function () {
 
         // megoldás: $(this) -> ez a this mutat az eseményfigyelőben meghatározott gombra,
         // akin lefut az esemény
-        let torlendoUserId = $(this).parent().parent().data('userid');
+
+        let gomb = $(this);
+        let td = gomb.parent();
+        let tr = td.parent();
+
+        let torlendoUserId = tr.data('userid');
         //console.log(id); TESZTELNI KELL TÉNYLEG KISZEDTE-E A JÓ ID-T...
 
         $.ajax({
@@ -86,12 +91,44 @@ $(document).ready(function () {
                         // egyébként -> id : 2
             },
             success: function () {
-                location.reload();
+                //location.reload();
+                tr.fadeOut();
             },
             error: function () {
 
             }
         });
 
+    });
+
+    $(document).on('click', '.js-modositas', function () {
+        //alert('Helló');
+        let gomb = $(this);
+        let td = gomb.parent();
+        let tr = td.parent();
+
+        let modositandoUserId = tr.data('userid');
+
+        let td_0 = tr.children().first();
+        let td_1 = td_0.next();
+
+        let modositottNickname = td_0.text();
+        let modositottEmail = td_1.text();
+
+        $.ajax({
+            url: 'php/usermodositas.php',
+            method: 'post',
+            data: {
+                id: modositandoUserId,
+                nickname: modositottNickname,
+                email: modositottEmail
+            },
+            success: function () {
+                alert("Sikeres módosult!");
+            },
+            error: function () {
+
+            }
+        });
     });
 });

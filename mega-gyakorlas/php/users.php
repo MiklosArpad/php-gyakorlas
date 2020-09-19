@@ -19,10 +19,12 @@ if (!$res) {
 
 while ($row = $res->fetch_row()) {
     $html .= "<tr data-userid='{$row[0]}'>"
-            . "<td>{$row[1]}</td>"
-            . "<td>{$row[2]}</td>"
-            . "<td><button class='js-modositas btn btn-info'>Módosítás</button>"
-            . "<button class='js-torles btn btn-danger'>Törlés</button></td>"
+            . "<td contenteditable>{$row[1]}</td>" # contenteditable: módosítható a cella értéke
+            . "<td contenteditable>{$row[2]}</td>" # contenteditable: módosítható a cella értéke
+            . "<td>"
+            . "<button class='js-modositas btn btn-info'>Módosítás</button>"
+            . "<button class='js-torles btn btn-danger'>Törlés</button>"
+            . "</td>"
             . '</tr>';
 }
 
