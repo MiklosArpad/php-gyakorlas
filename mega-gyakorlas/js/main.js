@@ -1,5 +1,31 @@
 $(document).ready(function () {
 
+    $(document).on('click', '#login', function (e) {
+
+        e.preventDefault();
+
+        let nickname = $('[name=nickname]').val();
+        let jelszo = $('[name=password]').val();
+
+        nickname = nickname.trim();
+        jelszo = jelszo.trim();
+
+        $.ajax({
+            url: 'php/login.php',
+            method: 'post',
+            data: {
+                nickname : nickname,
+                pwd: jelszo
+            },
+            success: function () {
+                
+            },
+            error: function () {
+                
+            }
+        });
+    });
+
     $(document).on('click', '.reg', function (e) {
         // 0) ha tudom, hogy ajaxolni fogok, azonnal letiltom a submit gomb 
         // működését!

@@ -4,7 +4,7 @@
         <?php require_once 'html/head.html'; ?>
     </head>
     <body>
-        <?php require_once 'html/navbar.html'; ?>
+        <?php require_once 'html/navbar_out.html'; ?>
 
         <div class="container">
             <div class="row">
