@@ -5,23 +5,30 @@ $(document).ready(function () {
         e.preventDefault();
 
         let nickname = $('[name=nickname]').val();
-        let jelszo = $('[name=password]').val();
+        let pwd = $('[name=password]').val();
 
         nickname = nickname.trim();
-        jelszo = jelszo.trim();
+        pwd = pwd.trim();
 
         $.ajax({
             url: 'php/login.php',
             method: 'post',
             data: {
-                nickname : nickname,
-                pwd: jelszo
+                nickname: nickname,
+                pwd: pwd
             },
             success: function () {
-                
+                location.href = 'main.php';
+
+                /*
+                 $('#login-form').html("Login sikeres... Átirányítás...").css('color', 'white');
+                 // Késleltetés
+                 setInterval(function () {
+                 location.href = 'main.php';
+                 }, 2000);*/
             },
-            error: function () {
-                
+            error: function (xhr) {
+                alert(xhr.status);
             }
         });
     });
