@@ -8,6 +8,8 @@ require_once '../config/connect.php';
 // 2) header (tartalmat ad vissza -> ez másik erőforrás lehet...
 // 3) http válaszkódok
 
+# 4.feladat: ellenőrzi a POST-ot, csak az az 1 sor REQUEST_METHOD
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // regisztráció folyamata ...
 
@@ -15,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $jelszo = $_POST['jelszo'];
 
+    #4. sql lekérdezés elkészítése, paraméterezetten
+    # és ezzel menti is 
+    
     $sql = 'INSERT INTO felhasznalok (Nickname, Email, Jelszo) '
             . 'VALUES (?, ?, ?);';
 

@@ -14,6 +14,11 @@ if (true) {
     </head>
     <body>
         <?php require_once 'html/navbar_out.html'; ?>
+        
+        <!-- 4. feladat: az űrlap mezői elkészültek ,
+        tájékoztatja a felhsználót(placeholder, type, name, required attributumok)
+        megfelelően formázta- mindig a form-control kapja (Bootstrap)
+        -->
 
         <div class="container">
             <div class="row">
