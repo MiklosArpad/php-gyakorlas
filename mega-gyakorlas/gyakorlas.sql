@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Sze 21. 11:34
+-- Létrehozás ideje: 2020. Sze 21. 11:38
 -- Kiszolgáló verziója: 10.1.38-MariaDB
 -- PHP verzió: 5.6.40
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `gyakorlas`
 --
+CREATE DATABASE IF NOT EXISTS `gyakorlas` DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
+USE `gyakorlas`;
 
 -- --------------------------------------------------------
 
@@ -28,12 +30,14 @@ SET time_zone = "+00:00";
 -- Tábla szerkezet ehhez a táblához `felhasznalok`
 --
 
-CREATE TABLE `felhasznalok` (
-  `Id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `felhasznalok`;
+CREATE TABLE IF NOT EXISTS `felhasznalok` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nickname` varchar(10) COLLATE utf8_hungarian_ci NOT NULL,
   `Email` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `Jelszo` varchar(8) COLLATE utf8_hungarian_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  `Jelszo` varchar(8) COLLATE utf8_hungarian_ci NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `felhasznalok`
@@ -42,26 +46,6 @@ CREATE TABLE `felhasznalok` (
 INSERT INTO `felhasznalok` (`Id`, `Nickname`, `Email`, `Jelszo`) VALUES
 (1, 'jbence', 'jbence@gmail.com', '12345'),
 (2, 'marpad', 'marpad@gmail.com', '12345');
-
---
--- Indexek a kiírt táblákhoz
---
-
---
--- A tábla indexei `felhasznalok`
---
-ALTER TABLE `felhasznalok`
-  ADD PRIMARY KEY (`Id`);
-
---
--- A kiírt táblák AUTO_INCREMENT értéke
---
-
---
--- AUTO_INCREMENT a táblához `felhasznalok`
---
-ALTER TABLE `felhasznalok`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
