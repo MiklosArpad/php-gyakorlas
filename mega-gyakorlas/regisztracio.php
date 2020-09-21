@@ -1,3 +1,12 @@
+<?php
+
+require_once './config/init.php';
+if (true) {
+    
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
