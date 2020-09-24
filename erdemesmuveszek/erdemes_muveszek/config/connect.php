@@ -1,17 +1,16 @@
 <?php
 
 $server = '127.0.0.1';
-$user = 'miki';
+$eser = 'exam';
 $db = 'erdemes_muveszek';
-$pwd = 'miki113';
-$port = '3306';
+$pwd = 'exam';
+$port = 3306;
 
-$link = new mysqli($server, $user, $pwd, $db, $port);
+$link = new mysqli($server, $eser, $pwd, $db, $port);
 
-if ($link->connect_errno) {
-    die("Nem csatlakozott az adatbázishoz!");
+if($link->connect_errno) {
+    die('Nem csatlakozik az adatbázishoz');
 }
-
-if (!$link->set_charset('utf8')) {
-    die("karakterkódolási hiba");
+if(!$link->set_charset('utf8')) {
+    die('Karakterkódoláai hiba');
 }

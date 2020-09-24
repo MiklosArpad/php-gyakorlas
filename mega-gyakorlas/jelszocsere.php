@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html lang="hu">
     <head>
-        <meta charset="UTF-8">
-        <title></title>
+        <?php require_once './html/head.html'; ?>
     </head>
     <body>
         <?php
-        // put your code here
+        require_once 'config/functions.php';
+        printNavbar();
         ?>
     </body>
 </html>

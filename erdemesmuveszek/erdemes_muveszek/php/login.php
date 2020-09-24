@@ -7,23 +7,23 @@ if (isset($_POST['felhasznalo'])) {
     $felhasznalo = $_POST['felhasznalo'];
     $jelszo = $_POST['jelszo'];
 
-    $sql = "SELECT az, nev FROM szemely WHERE nev = ? AND ev = ?";
-    $stmt = $link->prepare($sql);
-    $stmt->bind_param('si', $felhasznalo, $jelszo);
-    $stmt->execute();
-    $stmt->store_result();
+    $sql = "SELECT * FROM szemely WHERE nev = '$felhasznalo' AND ev = '$jelszo'";
+    $res = $link->query($sql);
 
-    if ($stmt->num_rows == 1) {
+    if ($res->num_rows == 1) {
         //sikeres bejelentkezés
-        $stmt->bind_result($id, $nev);
-        $stmt->fetch();
 
-        $_SESSION['nev'] = $nev;
-        $_SESSION['nevaz'] = $id;
+        unset($_SESSION['hiba']);
+
+        while ($sor = $res->fetch_assoc()) {
+            $_SESSION['nev'] = $sor['nev'];
+            $_SESSION['nevaz'] = $sor['az'];
+        }
+
+        header('Location: main.php');
     } else {
         $_SESSION['hiba'] = "Helytelen felhasználónév vagy jelszó!";
+        header('Location: ../index.php');
     }
-
-    $stmt->close();
-    $link->close();
 }
+?>

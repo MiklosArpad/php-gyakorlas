@@ -7,6 +7,7 @@ if (!isset($_SESSION['user']))
 <html lang="hu">
     <head>
         <?php require_once 'html/head.html'; ?>
+        <title>Felhasználók kezelése</title>
     </head>
     <body>
         <?php require_once 'html/navbar_in.html'; ?>
