@@ -1,24 +1,29 @@
 <?php
-session_start();    
+
+session_start();
 require_once('../config/connect.php');
-    
-    if (isset($_POST['felhasznalo'])){
-        $felhasznalo = $_POST['felhasznalo'];
-        $jelszo = $_POST['jelszo'];
-        
-        $sql = "SELECT * FROM szemely WHERE nev = '$felhasznalo' AND ev = '$jelszo'";
-        $res = mysqli_query($link, $sql);
-        
-        if (mysqli_num_rows($res) == 1){
-            //sikeres bejelentkezés
-            $sor = mysqli_fetch_assoc($res);
+
+if (isset($_POST['felhasznalo'])) {
+    $felhasznalo = $_POST['felhasznalo'];
+    $jelszo = $_POST['jelszo'];
+
+    $sql = "SELECT * FROM szemely WHERE nev = '$felhasznalo' AND ev = '$jelszo'";
+    $res = $link->query($sql);
+
+    if ($res->num_rows == 1) {
+        //sikeres bejelentkezés
+
+        unset($_SESSION['hiba']);
+
+        while ($sor = $res->fetch_assoc()) {
             $_SESSION['nev'] = $sor['nev'];
             $_SESSION['nevaz'] = $sor['az'];
-            header('Location: main.php');
-        } else {
-            $_SESSION['hiba'] = "Helytelen felhasználónév vagy jelszó!";
         }
-        
-    }
 
+        header('Location: main.php');
+    } else {
+        $_SESSION['hiba'] = "Helytelen felhasználónév vagy jelszó!";
+        header('Location: ../index.php');
+    }
+}
 ?>

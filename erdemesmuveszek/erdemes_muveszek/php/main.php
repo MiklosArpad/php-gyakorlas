@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION['nev'])) {
+        header('Location: ../nincs_belepve.php');
+    }
         
 ?>
 
