@@ -1,20 +1,12 @@
-<?php
-
-require_once './config/init.php';
-if (true) {
-    
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
         <?php require_once 'html/head.html'; ?>
+        <title>Regisztráció</title>
     </head>
     <body>
         <?php require_once 'html/navbar_out.html'; ?>
-        
+
         <!-- 4. feladat: az űrlap mezői elkészültek ,
         tájékoztatja a felhsználót(placeholder, type, name, required attributumok)
         megfelelően formázta- mindig a form-control kapja (Bootstrap)

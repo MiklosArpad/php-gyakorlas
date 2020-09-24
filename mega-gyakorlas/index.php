@@ -2,6 +2,7 @@
 <html lang="hu">
     <head>
         <?php require_once 'html/head.html'; ?>
+        <title>Főoldal</title>
     </head>
     <body>
         <?php
