@@ -4,7 +4,8 @@ require_once '../config/connect.php';
 
 $sql = 'SELECT DISTINCT ev FROM szemely ORDER BY ev ASC';
 $res = $link->query($sql);
-$html = '<select><option>Válassz évszámot</option>';
+$html = '<select class="form-control">'
+        . '<option>Válassz évszámot</option>';
 
 
 while ($row = $res->fetch_row()) {

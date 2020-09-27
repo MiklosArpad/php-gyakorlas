@@ -27,8 +27,8 @@ $(document).ready(function () {
             data: {
                 ev: ev
             },
-            success: function () {
-
+            success: function (tablazat) {
+                $('#adatok').html(tablazat);
             },
             error: function (xhr) {
                 alert(xhr.status);

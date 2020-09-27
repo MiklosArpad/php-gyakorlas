@@ -15,13 +15,24 @@ body{
     width: 25%;
     margin: 0 auto;
 }
+
 .kilep{
+    display: block;
+    margin: 0 auto;
+}
+/*.kilep{
     border: 1px solid black;
     padding: 3px;
     background-color: lightgray;
 }
+
 .kilep:hover{
     cursor: pointer;
     background-color: black;
     color: white;
+}*/
+
+
+tr:hover{
+    font-size: 20px;
 }

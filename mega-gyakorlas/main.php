@@ -8,6 +8,7 @@ if (!isset($_SESSION['user']))
     <head>
         <?php require_once 'html/head.html'; ?>
         <title>Felhasználók kezelése</title>
+        <!-- Latest compiled and minified CSS -->
     </head>
     <body>
         <?php require_once 'html/navbar_in.html'; ?>
