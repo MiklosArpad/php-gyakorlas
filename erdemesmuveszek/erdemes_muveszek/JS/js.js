@@ -1,16 +1,28 @@
 $(document).ready(function () {
 
+
+    // 1. megoldás: eseményre töltődjön le a select lista
     // ajax hívás
-    $.ajax({
-        method: 'get',
-        url: 'select.php',
-        success: function (selectHtml) {
-            $('#szures').html(selectHtml);
-        },
-        error: function (xhr) {
-            alert(xhr.status);
-        }
-    });
+
+    // 2. megoldás: a main-t kitakarítjuk a gyökérbe... (vizsgán nem hiszem hogy ilyet szabad.... minden összeomlik)
+
+    let url = window.location.href; // natív JS
+    //  let url = $('location').attr('href'); // jQuery
+
+    console.log("Jelenleg ezen az URL-en vagyunk:" + url);
+
+    if (url.indexOf('main.php') > 0) {
+        $.ajax({
+            method: 'get',
+            url: 'select.php',
+            success: function (selectHtml) {
+                $('#szures').html(selectHtml);
+            },
+            error: function (xhr) {
+                alert(xhr.status);
+            }
+        });
+    }
 
     //Szűrés
     // Akkor vállald be, ha tudod hogy egy darab <select> van a DOM-fában!!!
@@ -35,4 +47,26 @@ $(document).ready(function () {
             }
         });
     });
+    //Kilépés
+    $(document).on('click', '.kilep', function () {
+        //console.log('HELLO');
+        $.ajax({
+            method: 'get',
+            url: 'logout.php',
+            success: function () {
+                location.href = '../index.php';
+            },
+            error: function (xhr) {
+                alert(xhr.status);
+            }
+        });
+    });
+    //Belépés
+    $(document).on('click', '#submit', function (event) {
+        event.preventDefault();
+        //alert('Belefut');
+        
+        // ha gondolod házi feladat
+    });
+
 });
