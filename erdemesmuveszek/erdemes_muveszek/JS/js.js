@@ -65,7 +65,22 @@ $(document).ready(function () {
     $(document).on('click', '#submit', function (event) {
         event.preventDefault();
         //alert('Belefut');
-        
+        let username= $('[name=felhasznalo]').val();
+        let jelszo= $('[name=jelszo]').val();
+        $.ajax({
+           method: 'post',
+           url:'login.php',
+           data:{
+               felhasznalo: username,
+               jelszo: jelszo
+           },
+            success: function () {
+                location.href='main.php';
+            },
+            error: function () {
+                alert('Nem sikerült a bejelentkezés');
+            }
+        });
         // ha gondolod házi feladat
     });
 
