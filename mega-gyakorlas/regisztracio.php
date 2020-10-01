@@ -1,40 +1,7 @@
-<!DOCTYPE html>
-<html lang="hu">
-    <head>
-        <?php require_once 'html/head.html'; ?>
-        <title>Regisztráció</title>
-    </head>
-    <body>
-        <?php require_once 'html/navbar_out.html'; ?>
+<?php
 
-        <!-- 4. feladat: az űrlap mezői elkészültek ,
-        tájékoztatja a felhsználót(placeholder, type, name, required attributumok)
-        megfelelően formázta- mindig a form-control kapja (Bootstrap)
-        -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group" id="reg-form">
-                        <fieldset>
-                            <legend class="text-center">Regisztráció</legend>
-                            <form action="php/reg.php" method="post">
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="nickname" type="text" name="nickname" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="e-mail cím" type="email" name="e-mail-cim" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="jelszó" type="password" name="pwd" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="reg form-control btn btn-primary" type="submit" value="Regisztráció">
-                                </div>
-                            </form>
-                        </fieldset>
-                    </div> 
-                </div>
-            </div>
-    </body>
-</html>
+require_once 'html/head.html';
+require_once 'config/functions.php';
+printNavbar();
+require_once 'html/regform.html';
+require_once 'html/footer.html';

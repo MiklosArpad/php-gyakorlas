@@ -99,7 +99,7 @@ $(document).ready(function () {
             });
         } else {
             // TODO: HTML hibaüzenetek készítése + email hibaüzi ...
-            
+
             // 4. feladat: felhasználót tájékoztatja a folyamat eredményéről
             alert("Nickname 10 vagy annál kevesebb karakter lehet! Jelszó 8 vagy annál kevesebb karakter lehet!");
         }
