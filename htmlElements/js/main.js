@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $.ajax({
         method: 'get',
-        url: 'cars.php',
+        url: 'php/cars.php',
         success: function (selectHTML) {
             $('.kocsik').html(selectHTML);
         },
