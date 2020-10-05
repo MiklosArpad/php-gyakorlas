@@ -2,17 +2,17 @@
 
 require_once '../config/connect.php';
 
-$sql = "SELECT * FROM marka ORDER BY nev;";
+$sql = "SELECT DISTINCT ev FROM szemely ORDER BY ev;";
 $res = $connect->query($sql);
 
 if (!$res) {
     die("Hiba a lekérdezésben!");
 }
 
-$html = "<select class='form-control'>";
+$html = "<select class='form-control evszamok'>";
 
 while ($row = $res->fetch_row()) {
-    $html .= "<option value='$row[0]'>$row[1]</option>";
+    $html .= "<option>$row[0]</option>";
 }
 
 $html .= "</select>";

@@ -2,7 +2,7 @@
 
 $server = 'localhost';
 $user = 'root';
-$db = 'kocsik';
+$db = 'erdemes_muveszek';
 $pwd = '';
 $port = 3306;
 
