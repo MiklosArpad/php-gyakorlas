@@ -10,6 +10,7 @@ $(document).ready(function () {
             alert('Erőforrás nem elérhető' + xhr.status);
         }
     });
+    
     $.ajax({
         method: 'get',
         url: 'php/szineszek.php',
@@ -21,21 +22,21 @@ $(document).ready(function () {
         }
     });
     //SZűrés
-    $(document).on('change', '.evszamok', function () {
+    $(document).on('change', '.szures', function () {
         let ev = $(this).val();
         //console.log(ev);
         $.ajax({
             method: 'post',
-            url:'php/szures.php',
-            data:{
-                ev:ev
+            url: 'php/szures.php',
+            data: {
+                ev: ev
             },
-            success:function(tablazat){
-                $('#evszamok').html(tablazat);
+            success: function (tablazat) {
+                $('.szineszek').html(tablazat);
             },
-            error:function(xhr){
+            error: function (xhr) {
                 alert(xhr.status);
             }
-        });   // szures.php -> táblázat ginerelás + paraméterezettel kérdezd le!
+        });
     });
 });

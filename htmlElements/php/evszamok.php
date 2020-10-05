@@ -9,7 +9,7 @@ if (!$res) {
     die("Hiba a lekérdezésben!");
 }
 
-$html = "<select class='form-control evszamok'>";
+$html = "<select class='form-control szures'>";
 
 while ($row = $res->fetch_row()) {
     $html .= "<option>$row[0]</option>";
