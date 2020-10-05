@@ -24,6 +24,18 @@ $(document).ready(function () {
     $(document).on('change', '.evszamok', function () {
         let ev = $(this).val();
         //console.log(ev);
-        $.ajax({});   // szures.php -> táblázat ginerelás + paraméterezettel kérdezd le!
+        $.ajax({
+            method: 'post',
+            url:'php/szures.php',
+            data:{
+                ev:ev
+            },
+            success:function(tablazat){
+                $('#evszamok').html(tablazat);
+            },
+            error:function(xhr){
+                alert(xhr.status);
+            }
+        });   // szures.php -> táblázat ginerelás + paraméterezettel kérdezd le!
     });
 });
